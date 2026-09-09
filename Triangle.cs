@@ -35,18 +35,6 @@ namespace pochinki
             P2.AddY(y);
             P3.AddY(y);
         }
-        public void DrowLine(Point2D p1, Point2D p2)
-        {
-            Line line = new Line();
-            line.Stroke = Brushes.Red;
-            line.StrokeThickness = 3;
-
-            line.X1 = p1.X;
-            line.Y1 = p1.Y;
-            line.X2 = p2.X;
-            line.Y2 = p2.Y;
-
-            //Scene.Children.Add(line);
-        }
+       
     }
 }

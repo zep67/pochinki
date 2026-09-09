@@ -16,14 +16,16 @@ namespace pochinki
     /// </summary>
     public partial class MainWindow : Window
     {
-        Triagnle tr;
+        Triangle tr;
         Random rnd = new Random();
         public MainWindow()
         {
+            InitializeComponent();
             Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p2 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p3 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             tr = new Triangle(p1, p2, p3);
+            DrawTriangle(tr);
         }
         public void DrawTriangle(Triangle tr)
         {
@@ -34,6 +36,20 @@ namespace pochinki
         public void ClearScene()
         {
             Scene.Children.Clear();
+        }
+
+        public void DrawLine(Point2D p1, Point2D p2)
+        {
+            Line line = new Line();
+            line.Stroke = Brushes.Red;
+            line.StrokeThickness = 3;
+
+            line.X1 = p1.X;
+            line.Y1 = p1.Y;
+            line.X2 = p2.X;
+            line.Y2 = p2.Y;
+
+            Scene.Children.Add(line);
         }
     }
 }
