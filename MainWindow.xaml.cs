@@ -17,6 +17,7 @@ namespace pochinki
     public partial class MainWindow : Window
     {
         Triangle tr;
+        Quadrilateral qd;
         Random rnd = new Random();
         public MainWindow()
         {
@@ -24,8 +25,25 @@ namespace pochinki
             Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p2 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p3 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+            Point2D p4 = new Point2D(rnd.Next(50, (int)Scene.Width - 50), rnd.Next(50, (int)Scene.Height - 50));
+
+            int width = rnd.Next(30, 150);
+            int height = rnd.Next(30, 150);
+
+            Point2D p5 = new Point2D(p4.X + width, p4.Y);
+            Point2D p6 = new Point2D(p4.X + width, p4.Y + height);
+            Point2D p7 = new Point2D(p4.X, p4.Y + height);
             tr = new Triangle(p1, p2, p3);
+            qd = new Quadrilateral(p4, p5, p6, p7);
+            DrawQuadrilateral(qd);
             DrawTriangle(tr);
+        }
+        public void DrawQuadrilateral(Quadrilateral qd)
+        {
+            DrawLine(qd.P4, qd.P5);
+            DrawLine(qd.P5, qd.P6);
+            DrawLine(qd.P6, qd.P7);
+            DrawLine(qd.P7, qd.P4);
         }
         public void DrawTriangle(Triangle tr)
         {
