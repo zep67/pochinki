@@ -35,6 +35,14 @@ namespace pochinki
             P2.AddY(y);
             P3.AddY(y);
         }
-       
+
+        public void MoveTo(int newX, int newY)
+        {
+            int dx = newX - P1.X;
+            int dy = newY - P1.Y;
+            AddX(dx);
+            AddY(dy);
+        }
+
     }
 }

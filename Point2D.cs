@@ -22,7 +22,7 @@ namespace pochinki
         }
         public void AddY(int y)
         {
-            Y = y;
+            Y += y;
         }
 
     }
